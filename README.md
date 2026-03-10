@@ -5,9 +5,37 @@ This repository documents my personal cybersecurity homelab used to practice pen
 
 The lab environment was created using virtualization to simulate real-world security testing environments. It provides a safe platform to experiment with security tools, perform network enumeration, and analyze vulnerabilities.
 
-The primary testing environment uses Kali Linux, a penetration testing distribution maintained by Offensive Security, running inside a virtual machine managed by VirtualBox.
+The primary testing environment uses Kali Linux, a penetration testing distribution maintained by Offensive Security, running inside a virtual machine managed by Oracle VM VirtualBox.
 
-Homelab Architecture Diagram
+Table of Contents
+
+Overview
+
+Homelab Architecture
+
+Environment Configuration
+
+Kali Linux System Preparation
+
+Tools Installed and Practiced
+
+Browser Configuration
+
+System Organization
+
+Lab Platforms Used
+
+Typical Testing Workflow
+
+Portfolio Project Description
+
+Skills Demonstrated
+
+Future Improvements
+
+Author
+
+Homelab Architecture
 +--------------------------------------------------+
 |                Host Computer (Windows)           |
 |                                                  |
@@ -31,16 +59,18 @@ Homelab Architecture Diagram
 |                                                  |
 +--------------------------------------------------+
 
-The hypervisor used is VirtualBox, which runs the penetration testing system Kali Linux.
+The hypervisor used is Oracle VM VirtualBox, which runs the penetration testing system Kali Linux.
 
 Environment Configuration
 Hypervisor
 
-VirtualBox
+Virtualization platform: Oracle VM VirtualBox
 
 Virtual Machine
 
 Operating System: Kali Linux
+
+System configuration:
 
 RAM Allocation: ~8 GB
 
@@ -48,7 +78,7 @@ Swap: ~1 GB
 
 CPU: Multiple cores assigned
 
-Disk space: Expanded to support security tools and lab data
+Disk space expanded to support security tools and lab data
 
 Example system memory output:
 
@@ -77,7 +107,7 @@ System dependencies and utilities were verified to ensure tools run correctly.
 Tools Installed and Practiced
 Network Scanning
 
-Nmap
+Tool: Nmap
 
 Example enumeration command:
 
@@ -93,7 +123,7 @@ Execute default vulnerability scripts
 
 Web Application Security Testing
 
-Burp Suite
+Tool: Burp Suite
 
 Burp Suite is used to intercept and analyze HTTP/HTTPS traffic during web security testing.
 
@@ -101,6 +131,8 @@ Typical proxy configuration:
 
 127.0.0.1:8080
 Directory and Content Discovery
+
+Tools used:
 
 Gobuster
 
@@ -112,6 +144,8 @@ Example directory discovery:
 
 gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 Wordlists
+
+Wordlists used:
 
 SecLists
 
@@ -128,6 +162,8 @@ fuzzing
 password testing
 
 Privilege Escalation Tools
+
+Tools used:
 
 LinPEAS
 
@@ -171,40 +207,57 @@ Hack The Box
 These platforms provide intentionally vulnerable machines designed for security training.
 
 Typical Testing Workflow
-
-Perform initial reconnaissance
-
+1. Perform Initial Reconnaissance
 nmap -sC -sV TARGET_IP
-
-Enumerate web directories
-
+2. Enumerate Web Directories
 gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+3. Intercept Traffic
 
-Intercept traffic using Burp Suite
+Use Burp Suite proxy to capture requests.
 
-Analyze potential vulnerabilities
+4. Analyze Vulnerabilities
 
-Run privilege escalation enumeration tools
+Review request/response behavior and identify potential weaknesses.
+
+5. Privilege Escalation Enumeration
+
+Run tools such as:
+
+LinPEAS
+
+WinPEAS
 
 Portfolio Project Description
 
 This homelab project demonstrates practical cybersecurity experience through the deployment and configuration of a virtual penetration testing environment.
 
-The project simulates a real security testing workstation used for reconnaissance, vulnerability analysis, and exploitation practice.
+The project simulates a real security testing workstation used for:
+
+reconnaissance
+
+vulnerability analysis
+
+exploitation practice
 
 Key areas demonstrated:
 
 Virtualization
 
-Deployment of virtual machines using VirtualBox to create an isolated testing environment.
+Deployment of virtual machines using Oracle VM VirtualBox to create an isolated testing environment.
 
 Linux Administration
 
-Configuration and management of Kali Linux including package updates, tool installation, and system configuration.
+Configuration and management of Kali Linux including:
+
+package updates
+
+tool installation
+
+system configuration
 
 Security Tool Usage
 
-Hands-on experience with widely used penetration testing tools including:
+Hands-on experience with commonly used penetration testing tools including:
 
 Nmap
 
@@ -234,7 +287,7 @@ network enumeration
 
 web application security testing
 
-tool configuration and usage
+security tool configuration and usage
 
 Future Improvements
 
@@ -244,7 +297,7 @@ additional vulnerable virtual machines
 
 automated reconnaissance scripts
 
-structured lab reports
+structured penetration testing reports
 
 exploit development practice
 
