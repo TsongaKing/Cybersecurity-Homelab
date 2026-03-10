@@ -93,13 +93,13 @@ sudo apt install -y build-essential
 🛠️ Tools Installed and Practiced
 
 Network Scanning
-Tool	Purpose	                            Example Usage
-Nmap	Port scanning & service detection 	nmap -sC -sV TARGET_IP
+Tool	 Purpose	                            Example Usage
+Nmap	 Port scanning & service detection 	  nmap -sC -sV TARGET_IP
 
 Web Application Security Testing
-Tool	        Purpose
-Burp Suite	  Intercept and analyze HTTP/HTTPS traffic
-Proxy Config	127.0.0.1:8080
+Tool	         Purpose
+Burp Suite	   Intercept and analyze HTTP/HTTPS traffic
+Proxy Config	 127.0.0.1:8080
 
 Directory and Content Discovery
 Tool	        Description	                  Example
