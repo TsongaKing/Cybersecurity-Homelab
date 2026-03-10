@@ -105,7 +105,7 @@ Directory and Content Discovery
 Tool	        Description	                  Example
 Gobuster	    Directory/file enumeration	   gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 FFUF	        Fuzzing tool	               ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt
-Feroxbuster	    Recursive content discovery	  feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+Feroxbuster	    Recursive content discovery	   feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 
 Wordlists
 SecLists - Location: /usr/share/seclists
