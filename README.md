@@ -98,7 +98,7 @@ Nmap	 Port scanning & service detection 	  nmap -sC -sV TARGET_IP
 
 Web Application Security Testing
 Tool	         Purpose
-Burp Suite	   Intercept and analyze HTTP/HTTPS traffic
+Burp Suite	     Intercept and analyze HTTP/HTTPS traffic
 Proxy Config	 127.0.0.1:8080
 
 Directory and Content Discovery
