@@ -93,19 +93,19 @@ sudo apt install -y build-essential
 🛠️ Tools Installed and Practiced
 
 Network Scanning
-Tool	Purpose	Example Usage
-Nmap	Port scanning & service detection	nmap -sC -sV TARGET_IP
+Tool	Purpose	                            Example Usage
+Nmap	Port scanning & service detection 	nmap -sC -sV TARGET_IP
 
 Web Application Security Testing
-Tool	Purpose
-Burp Suite	Intercept and analyze HTTP/HTTPS traffic
+Tool	        Purpose
+Burp Suite	  Intercept and analyze HTTP/HTTPS traffic
 Proxy Config	127.0.0.1:8080
 
 Directory and Content Discovery
-Tool	Description	Example
-Gobuster	Directory/file enumeration	gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
-FFUF	Fuzzing tool	ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt
-Feroxbuster	Recursive content discovery	feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+Tool	        Description	                  Example
+Gobuster	    Directory/file enumeration	  gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+FFUF	        Fuzzing tool	                ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt
+Feroxbuster	  Recursive content discovery	  feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 
 Wordlists
 SecLists - Location: /usr/share/seclists
@@ -114,14 +114,14 @@ Fuzzing
 Password testing
 
 Privilege Escalation Tools
-Tool	Purpose
-LinPEAS	Linux privilege escalation enumeration
-WinPEAS	Windows privilege escalation enumeration
+Tool	    Purpose
+LinPEAS	  Linux privilege escalation enumeration
+WinPEAS	  Windows privilege escalation enumeration
 
 🌐 Browser Configuration for Web Testing
 Browser: Mozilla Firefox
 Extension: FoxyProxy
-Enables quick switching between normal browsing and Burp Suite proxy interception
+ Enables quick switching between normal browsing and Burp Suite proxy interception
 
 📁 System Organization
 To maintain a clean environment, the following directory structure was created:
@@ -148,10 +148,12 @@ Hack The Box - Advanced machines and challenges
 
 🔄 Typical Testing Workflow
 1. Perform Initial Reconnaissance
+
 bash
 nmap -sC -sV TARGET_IP
 
 2. Enumerate Web Directories
+
 bash
 gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 
@@ -166,6 +168,7 @@ Identify potential weaknesses
 Test for common vulnerabilities
 
 5. Privilege Escalation Enumeration
+
 bash
 # On Linux targets
 ./linpeas.sh
@@ -205,13 +208,13 @@ LinPEAS/WinPEAS - Privilege escalation enumeration
 🏆 Skills Demonstrated
 This project demonstrates practical skills in:
 
-Skill Area	Specific Competencies
-Virtualization	VM deployment, resource management, snapshot creation
-Linux Administration	CLI proficiency, package management, system configuration
-Penetration Testing	Reconnaissance, enumeration, vulnerability analysis
-Network Security	Port scanning, service detection, network mapping
-Web Security	Traffic interception, directory enumeration, fuzzing
-Tool Configuration	Security tool installation and optimization
+Skill Area	           Specific Competencies
+Virtualization	       VM deployment, resource management, snapshot creation
+Linux Administration	 CLI proficiency, package management, system configuration
+Penetration Testing	   Reconnaissance, enumeration, vulnerability analysis
+Network Security	     Port scanning, service detection, network mapping
+Web Security	         Traffic interception, directory enumeration, fuzzing
+Tool Configuration	   Security tool installation and optimization
 
 🚀 Future Improvements
 Planned enhancements for the homelab:
