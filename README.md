@@ -208,13 +208,13 @@ LinPEAS/WinPEAS - Privilege escalation enumeration
 🏆 Skills Demonstrated
 This project demonstrates practical skills in:
 
-Skill Area	           Specific Competencies
-Virtualization	       VM deployment, resource management, snapshot creation
+Skill Area	            Specific Competencies
+Virtualization	        VM deployment, resource management, snapshot creation
 Linux Administration	 CLI proficiency, package management, system configuration
-Penetration Testing	   Reconnaissance, enumeration, vulnerability analysis
+Penetration Testing	    Reconnaissance, enumeration, vulnerability analysis
 Network Security	     Port scanning, service detection, network mapping
 Web Security	         Traffic interception, directory enumeration, fuzzing
-Tool Configuration	   Security tool installation and optimization
+Tool Configuration	    Security tool installation and optimization
 
 🚀 Future Improvements
 Planned enhancements for the homelab:
