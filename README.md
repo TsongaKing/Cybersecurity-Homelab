@@ -177,7 +177,8 @@ bash
 .\winpeas.exe
 
 📝 Portfolio Project Description
-This homelab project demonstrates practical cybersecurity experience through the deployment and configuration of a virtual penetration testing environment.
+This homelab project demonstrates practical cybersecurity experience through the
+deployment and configuration of a virtual penetration testing environment.
 
 The project simulates a real security testing workstation used for:
 
