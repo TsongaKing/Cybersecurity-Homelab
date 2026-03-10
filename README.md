@@ -1,308 +1,257 @@
-Cybersecurity Homelab
-Overview
+# Cybersecurity Homelab
+
+![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white)
+![VirtualBox](https://img.shields.io/badge/VirtualBox-183A61?style=for-the-badge&logo=virtualbox&logoColor=white)
+![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burp-suite&logoColor=white)
+![Nmap](https://img.shields.io/badge/Nmap-0E83CD?style=for-the-badge&logo=nmap&logoColor=white)
+
+## 📋 Overview
 
 This repository documents my personal cybersecurity homelab used to practice penetration testing, security tooling, and Linux administration.
 
 The lab environment was created using virtualization to simulate real-world security testing environments. It provides a safe platform to experiment with security tools, perform network enumeration, and analyze vulnerabilities.
 
-The primary testing environment uses Kali Linux, a penetration testing distribution maintained by Offensive Security, running inside a virtual machine managed by Oracle VM VirtualBox.
+The primary testing environment uses **Kali Linux**, a penetration testing distribution maintained by Offensive Security, running inside a virtual machine managed by **Oracle VM VirtualBox**.
 
-Table of Contents
+## 📑 Table of Contents
 
-Overview
+- [Overview](#-overview)
+- [Homelab Architecture](#-homelab-architecture)
+- [Environment Configuration](#-environment-configuration)
+- [Kali Linux System Preparation](#-kali-linux-system-preparation)
+- [Tools Installed and Practiced](#-tools-installed-and-practiced)
+- [Browser Configuration](#-browser-configuration)
+- [System Organization](#-system-organization)
+- [Lab Platforms Used](#-lab-platforms-used)
+- [Typical Testing Workflow](#-typical-testing-workflow)
+- [Portfolio Project Description](#-portfolio-project-description)
+- [Skills Demonstrated](#-skills-demonstrated)
+- [Future Improvements](#-future-improvements)
+- [Author](#-author)
 
-Homelab Architecture
+## 🏗️ Homelab Architecture
+┌─────────────────────────────────────────────────────────────┐
+│ Host Computer (Windows) │
+│ │
+│ ┌──────────────────────────────────────────────────────┐ │
+│ │ VirtualBox Hypervisor │ │
+│ │ │ │
+│ │ ┌──────────────────────────────────────────────┐ │ │
+│ │ │ Kali Linux Virtual Machine │ │ │
+│ │ │ │ │ │
+│ │ │ ⚡ Security Tools Installed: │ │ │
+│ │ │ • Nmap │ │ │
+│ │ │ • Burp Suite │ │ │
+│ │ │ • Gobuster │ │ │
+│ │ │ • FFUF │ │ │
+│ │ │ • Feroxbuster │ │ │
+│ │ │ • LinPEAS / WinPEAS │ │ │
+│ │ │ │ │ │
+│ │ └──────────────────────────────────────────────┘ │ │
+│ │ │ │
+│ └──────────────────────────────────────────────────────┘ │
+│ │
+└─────────────────────────────────────────────────────────────┘
 
-Environment Configuration
+text
 
-Kali Linux System Preparation
+## ⚙️ Environment Configuration
 
-Tools Installed and Practiced
+### Hypervisor
+- **Virtualization platform:** Oracle VM VirtualBox
 
-Browser Configuration
+### Virtual Machine Specifications
+| Component | Configuration |
+|-----------|--------------|
+| **OS** | Kali Linux |
+| **RAM** | ~8 GB |
+| **Swap** | ~1 GB |
+| **CPU** | Multiple cores assigned |
+| **Storage** | Expanded disk space for tools and data |
 
-System Organization
-
-Lab Platforms Used
-
-Typical Testing Workflow
-
-Portfolio Project Description
-
-Skills Demonstrated
-
-Future Improvements
-
-Author
-
-Homelab Architecture
-+--------------------------------------------------+
-|                Host Computer (Windows)           |
-|                                                  |
-|  +--------------------------------------------+  |
-|  |            VirtualBox Hypervisor           |  |
-|  |                                            |  |
-|  |   +------------------------------------+   |  |
-|  |   |        Kali Linux Virtual Machine  |   |  |
-|  |   |                                    |   |  |
-|  |   |  Security Tools Installed:         |   |  |
-|  |   |  - Nmap                            |   |  |
-|  |   |  - Burp Suite                      |   |  |
-|  |   |  - Gobuster                        |   |  |
-|  |   |  - FFUF                            |   |  |
-|  |   |  - Feroxbuster                     |   |  |
-|  |   |  - LinPEAS / WinPEAS               |   |  |
-|  |   |                                    |   |  |
-|  |   +------------------------------------+   |  |
-|  |                                            |  |
-|  +--------------------------------------------+  |
-|                                                  |
-+--------------------------------------------------+
-
-The hypervisor used is Oracle VM VirtualBox, which runs the penetration testing system Kali Linux.
-
-Environment Configuration
-Hypervisor
-
-Virtualization platform: Oracle VM VirtualBox
-
-Virtual Machine
-
-Operating System: Kali Linux
-
-System configuration:
-
-RAM Allocation: ~8 GB
-
-Swap: ~1 GB
-
-CPU: Multiple cores assigned
-
-Disk space expanded to support security tools and lab data
-
-Example system memory output:
-
-free -h
-
-Example result:
-
-Mem: total 7.6Gi
-Used: ~902Mi
-Available: ~6.7Gi
-Swap: 953Mi
-
+#### System Memory Output Example
+```bash
+$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       902Mi       5.8Gi        23Mi       953Mi       6.7Gi
+Swap:          953Mi          0B       953Mi
 This configuration provides sufficient resources for security tools, browsers, and scanning utilities.
 
-Kali Linux System Preparation
+🔧 Kali Linux System Preparation
+After installation, the system was updated and configured:
 
-After installation, the system was updated and configured.
-
-Typical update process:
-
+bash
+# Update package repositories
 sudo apt update
-sudo apt upgrade
 
-System dependencies and utilities were verified to ensure tools run correctly.
+# Upgrade installed packages
+sudo apt upgrade -y
 
-Tools Installed and Practiced
+# Verify system dependencies
+sudo apt install -y build-essential
+🛠️ Tools Installed and Practiced
 Network Scanning
-
-Tool: Nmap
-
-Example enumeration command:
-
-nmap -sC -sV TARGET_IP
-
-Purpose:
-
-Identify open ports
-
-Detect running services
-
-Execute default vulnerability scripts
-
+Tool	Purpose	Example Usage
+Nmap	Port scanning & service detection	nmap -sC -sV TARGET_IP
 Web Application Security Testing
-
-Tool: Burp Suite
-
-Burp Suite is used to intercept and analyze HTTP/HTTPS traffic during web security testing.
-
-Typical proxy configuration:
-
-127.0.0.1:8080
+Tool	Purpose
+Burp Suite	Intercept and analyze HTTP/HTTPS traffic
+Proxy Config	127.0.0.1:8080
 Directory and Content Discovery
-
-Tools used:
-
-Gobuster
-
-ffuf
-
-Feroxbuster
-
-Example directory discovery:
-
-gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+Tool	Description	Example
+Gobuster	Directory/file enumeration	gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
+FFUF	Fuzzing tool	ffuf -u http://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt
+Feroxbuster	Recursive content discovery	feroxbuster -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 Wordlists
+SecLists - Location: /usr/share/seclists
 
-Wordlists used:
+Directory discovery
 
-SecLists
+Fuzzing
 
-Location:
-
-/usr/share/seclists
-
-These wordlists are used for:
-
-directory discovery
-
-fuzzing
-
-password testing
+Password testing
 
 Privilege Escalation Tools
+Tool	Purpose
+LinPEAS	Linux privilege escalation enumeration
+WinPEAS	Windows privilege escalation enumeration
+🌐 Browser Configuration for Web Testing
+Browser: Mozilla Firefox
 
-Tools used:
+Extension: FoxyProxy
 
-LinPEAS
+Enables quick switching between normal browsing and Burp Suite proxy interception
 
-WinPEAS
+📁 System Organization
+To maintain a clean environment, the following directory structure was created:
 
-These tools help identify privilege escalation opportunities on compromised systems.
-
-Browser Configuration for Web Testing
-
-Browser used:
-
-Mozilla Firefox
-
-Extension installed:
-
-FoxyProxy
-
-FoxyProxy enables quick switching between normal browsing and Burp Suite proxy interception.
-
-System Organization
-
-To keep the environment organized, directories were created for labs and tools.
-
-Example structure:
-
+text
 labs/
+├── tryhackme/
+├── hackthebox/
 tools/
+├── enumeration/
+├── exploitation/
 wordlists/
+├── custom/
+├── seclists/
 reports/
-
-This helps maintain clean lab documentation and separates scans, scripts, and results.
-
-Lab Platforms Used
-
+├── scans/
+├── findings/
+🎯 Lab Platforms Used
 The homelab is used to practice cybersecurity exercises on:
 
-TryHackMe
+TryHackMe - Beginner-friendly rooms and guided learning
 
-Hack The Box
+Hack The Box - Advanced machines and challenges
 
-These platforms provide intentionally vulnerable machines designed for security training.
-
-Typical Testing Workflow
+🔄 Typical Testing Workflow
 1. Perform Initial Reconnaissance
+bash
 nmap -sC -sV TARGET_IP
 2. Enumerate Web Directories
+bash
 gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/common.txt
 3. Intercept Traffic
+Configure Burp Suite proxy
 
-Use Burp Suite proxy to capture requests.
+Enable FoxyProxy in Firefox
+
+Capture and analyze requests
 
 4. Analyze Vulnerabilities
+Review request/response behavior
 
-Review request/response behavior and identify potential weaknesses.
+Identify potential weaknesses
+
+Test for common vulnerabilities
 
 5. Privilege Escalation Enumeration
+bash
+# On Linux targets
+./linpeas.sh
 
-Run tools such as:
-
-LinPEAS
-
-WinPEAS
-
-Portfolio Project Description
-
+# On Windows targets
+.\winpeas.exe
+📝 Portfolio Project Description
 This homelab project demonstrates practical cybersecurity experience through the deployment and configuration of a virtual penetration testing environment.
 
 The project simulates a real security testing workstation used for:
 
-reconnaissance
+🔍 Reconnaissance
 
-vulnerability analysis
+🕵️ Vulnerability analysis
 
-exploitation practice
+💻 Exploitation practice
 
-Key areas demonstrated:
-
+Key Areas Demonstrated
 Virtualization
+Deployment of virtual machines using Oracle VM VirtualBox
 
-Deployment of virtual machines using Oracle VM VirtualBox to create an isolated testing environment.
+Creation of isolated testing environments
+
+Resource allocation and optimization
 
 Linux Administration
+Configuration and management of Kali Linux
 
-Configuration and management of Kali Linux including:
+Package management and updates
 
-package updates
+System configuration and optimization
 
-tool installation
-
-system configuration
+Directory structure organization
 
 Security Tool Usage
+Hands-on experience with industry-standard tools:
 
-Hands-on experience with commonly used penetration testing tools including:
+Nmap - Network mapping and service detection
 
-Nmap
+Burp Suite - Web application security testing
 
-Burp Suite
+Gobuster/FFUF/Feroxbuster - Content discovery
 
-Gobuster
+LinPEAS/WinPEAS - Privilege escalation enumeration
 
-ffuf
-
-Feroxbuster
-
-LinPEAS
-
-WinPEAS
-
-Skills Demonstrated
-
+🏆 Skills Demonstrated
 This project demonstrates practical skills in:
 
-virtualization deployment
+Skill Area	Specific Competencies
+Virtualization	VM deployment, resource management, snapshot creation
+Linux Administration	CLI proficiency, package management, system configuration
+Penetration Testing	Reconnaissance, enumeration, vulnerability analysis
+Network Security	Port scanning, service detection, network mapping
+Web Security	Traffic interception, directory enumeration, fuzzing
+Tool Configuration	Security tool installation and optimization
+🚀 Future Improvements
+Planned enhancements for the homelab:
 
-Linux system administration
+Additional vulnerable virtual machines
 
-penetration testing workflows
+Set up Metasploitable 3
 
-network enumeration
+Deploy DVWA (Damn Vulnerable Web Application)
 
-web application security testing
+Configure Active Directory lab environment
 
-security tool configuration and usage
+Automated reconnaissance scripts
 
-Future Improvements
+Create bash scripts for automated scanning
 
-Planned enhancements include:
+Develop enumeration workflows
 
-additional vulnerable virtual machines
+Structured penetration testing reports
 
-automated reconnaissance scripts
+Implement report templates
 
-structured penetration testing reports
+Document findings and remediation steps
 
-exploit development practice
+Exploit development practice
 
-Author
+Binary exploitation exercises
 
+Buffer overflow challenges
+
+👤 Author
 Phangasasa Muhlaba
 
 Aspiring Cloud Security Engineer and DevSecOps professional focused on securing cloud infrastructure and developing hands-on cybersecurity skills.
