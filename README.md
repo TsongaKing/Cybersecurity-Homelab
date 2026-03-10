@@ -115,8 +115,8 @@ Password testing
 
 Privilege Escalation Tools
 Tool	    Purpose
-LinPEAS	  Linux privilege escalation enumeration
-WinPEAS	  Windows privilege escalation enumeration
+LinPEAS	   Linux privilege escalation enumeration
+WinPEAS	   Windows privilege escalation enumeration
 
 🌐 Browser Configuration for Web Testing
 Browser: Mozilla Firefox
